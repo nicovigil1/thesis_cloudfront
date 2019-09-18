@@ -20,7 +20,7 @@ module ThesisCloudfront
             "      /http:\/\/#{heroku_app_name}-pr-[0-9]+.herokuapp.com/",
             "            ]",
             "  resource '/assets/*', headers: :any, methods: [:get, :head, :options]",
-            "end"].join('\n')
+            "end"]
         end
       end
     end
