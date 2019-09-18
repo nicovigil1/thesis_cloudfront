@@ -2,15 +2,12 @@ require 'rails/generators'
 
 module ThesisCloudfront
   module Generators
-    class InstallGenerator < Rails::Generators::Base
-      def code_that_runs
+    class InstallGenerator < Rails::Generators::NamedBase
+      def install
         insert_into_file "Gemfile", after: "group :development, :test do\n" do
           "  gem 'rack_cors'\n"
         end
 
-        Bundler.with_clean_env do
-          run "bundle install"
-        end
 
         create_file "config/initializers/rack_cors.rb" do
             heroku_app_name = ask("whats the name of this heroku app?")
