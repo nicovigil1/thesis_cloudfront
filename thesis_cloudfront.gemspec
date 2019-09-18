@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/nicovigil1/thesis_cloudfront"
   spec.license       = "MIT"
 
-  spec.add_runtime_dependency 'rack-cors'
+  spec.add_dependency 'rack-cors'
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/nicovigil1/thesis_cloudfront"
