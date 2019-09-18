@@ -8,7 +8,9 @@ module ThesisCloudfront
           "  gem 'rack_cors'\n"
         end
 
-        system('bundle')
+        Bundler.with_clean_env do
+          run "bundle install"
+        end
 
         create_file "config/initializers/rack_cors.rb" do
             heroku_app_name = ask("whats the name of this heroku app?")
