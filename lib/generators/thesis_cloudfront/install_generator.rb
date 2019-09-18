@@ -13,12 +13,12 @@ module ThesisCloudfront
         create_file "config/initializers/rack_cors.rb" do
             ["Rails.application.config.middleware.insert_before 0, Rack::Cors do",
             "  allow do",
-            "      origins [",
-            "        /https:\\/\\/#{heroku_app_name}.herokuapp.com/,",
-            "        /http:\\/\\/#{heroku_app_name}.herokuapp.com/,",
-            "        /https:\\/\\/#{heroku_app_name}-pr-[0-9]+.herokuapp.com/,",
-            "        /http:\\/\\/#{heroku_app_name}-pr-[0-9]+.herokuapp.com/",
-            "      ]",
+            "    origins [",
+            "      /https:\\/\\/#{heroku_app_name}.herokuapp.com/,",
+            "      /http:\\/\\/#{heroku_app_name}.herokuapp.com/,",
+            "      /https:\\/\\/#{heroku_app_name}-pr-[0-9]+.herokuapp.com/,",
+            "      /http:\\/\\/#{heroku_app_name}-pr-[0-9]+.herokuapp.com/",
+            "    ]",
             "    resource '/assets/*', headers: :any, methods: [:get, :head, :options]",
             "  end",
             "end"].join("\n")
