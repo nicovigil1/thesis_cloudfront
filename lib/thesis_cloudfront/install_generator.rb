@@ -1,10 +1,14 @@
 require 'rails/generators'
 require 'csv'
 
-module ThesisCloudfront
+module Cloudfront
   module Generators
     class InstallGenerator < Rails::Generators::Base
       def install
+        # append_to_file "Gemfile" do
+        #   "\ngem 'rack-cors'"
+        # end
+
         heroku_app_name = ask("whats the name of this heroku app?")
         file = `heroku domains -a #{heroku_app_name} --csv`
         file&.gsub!(/===.+|.+\.herokuapp.com/, '').strip
@@ -33,11 +37,11 @@ module ThesisCloudfront
         end
 
         create_file "config/initializers/cloudfront.rb" do
-          ["ActionController::Base.asset_host = ENV['CLOUDFRONT_URL']",
-           "Rails.application.config.public_file_server.headers = {",
-           "  'Cache-Control' => 'public, max-age=2592000',",
-           '  "Expires" => "#{30.days.from_now.to_formatted_s(:rfc822)}"',
-           "}"].join("\n")
+          ["ActionController::Base.asset_host = ENV['CLOUDFRONT_URL']", 
+           "config.public_file_server.headers = {",
+           "    'Cache-Control' => 'public, max-age=2592000',",
+           "    \"Expires\" => \"\#{30.days.from_now.to_formatted_s(:rfc822)}\"",
+           "  }"].join("\n")
         end
       end
     end
