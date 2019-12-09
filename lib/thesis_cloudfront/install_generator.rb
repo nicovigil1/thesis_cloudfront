@@ -13,7 +13,8 @@ module Cloudfront
         file = `heroku domains -a #{heroku_app_name} --csv`
         file&.gsub!(/===.+|.+\.herokuapp.com/, '').strip
         domains = []
-        if file.class == Array
+
+        if file
           CSV.parse(file, headers: true).each do |x|
             if x['Domain Name']
               domains << '      /https:\/\/' + "#{x['Domain Name']}/"

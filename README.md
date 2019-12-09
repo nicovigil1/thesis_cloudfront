@@ -1,8 +1,7 @@
 # ThesisCloudfront
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/thesis_cloudfront`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+assumes you are using heroku for CNAME capturing purposes (through the cli), if not it'll skip that step. 
+If you aren't using Heroku I highly recommend you check out the rack_cors.rb initializer that's generated and edit it for your purposes.
 
 ## Installation
 
@@ -22,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+run `rails g thesis_cloudfront:install`
 
 ## Development
 
